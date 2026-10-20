@@ -183,10 +183,10 @@ Os testes unitários usam **JUnit 5** e ficam em `src/test/java`, espelhando a e
 - [x] Configuração do projeto (Maven, Java 21, JUnit 5)
 - [x] Pacote `exception`
 - [x] Pacote `util` (geradores e validador de CPF)
-- [ ] Pacote `model`
+- [x] Pacote `model`
   - [x] `TipoTransacao`, `Transacao`, `Pessoa`
-  - [ ] `Conta`, `ContaCorrente`, `ContaPoupanca`
-  - [ ] `Cliente`, `Banco`
+  - [x] `Conta`, `ContaCorrente`, `ContaPoupanca`
+  - [x] `Cliente`, `Banco`
 - [ ] Pacote `repository`
 - [ ] Pacote `service`
 - [ ] Pacote `app` (menu interativo)
