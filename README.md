@@ -1,4 +1,4 @@
-Sistema Bancário
+# *Sistema Bancário*
 
 Sistema bancário em Java 21 executado no terminal, que simula as operações básicas de um banco. O projeto foi construído com foco em orientação a objetos, separação de responsabilidades e código limpo, sem uso de frameworks.
 
