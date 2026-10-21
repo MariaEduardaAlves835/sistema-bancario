@@ -187,7 +187,7 @@ Os testes unitários usam **JUnit 5** e ficam em `src/test/java`, espelhando a e
   - [x] `TipoTransacao`, `Transacao`, `Pessoa`
   - [x] `Conta`, `ContaCorrente`, `ContaPoupanca`
   - [x] `Cliente`, `Banco`
-- [ ] Pacote `repository`
+- [x] Pacote `repository`
 - [ ] Pacote `service`
 - [ ] Pacote `app` (menu interativo)
 - [ ] Persistência em arquivo
