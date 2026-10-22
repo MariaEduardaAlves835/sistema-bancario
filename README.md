@@ -189,7 +189,7 @@ Os testes unitários usam **JUnit 5** e ficam em `src/test/java`, espelhando a e
   - [x] `Cliente`, `Banco`
 - [x] Pacote `repository`
 - [x] Pacote `service`
-- [ ] Pacote `app` (menu interativo)
+- [x] Pacote `app` (menu interativo)
 - [ ] Persistência em arquivo
 - [ ] Logs das operações
 - [ ] Cobertura de testes dos services
