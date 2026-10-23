@@ -48,6 +48,10 @@ public class ContaService {
         return repositorio.listarTodas();
     }
 
+    public void salvar(Conta conta) {
+        repositorio.salvar(conta);
+    }
+
     public List<Conta> listarPorCliente(String cpf) throws ClienteNaoEncontradoException {
         return clienteService.buscarPorCpf(cpf).getContas();
     }

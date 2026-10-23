@@ -24,6 +24,7 @@ public class TransacaoService {
             throws ContaNaoEncontradaException, ValorInvalidoException {
         Conta conta = contaService.buscarPorNumero(numeroConta);
         conta.depositar(valor, geradorId.proximo());
+        contaService.salvar(conta);
     }
 
     public void sacar(String numeroConta, BigDecimal valor)
@@ -31,6 +32,7 @@ public class TransacaoService {
             SaldoInsuficienteException {
         Conta conta = contaService.buscarPorNumero(numeroConta);
         conta.sacar(valor, geradorId.proximo());
+        contaService.salvar(conta);
     }
 
     public void transferir(String numeroOrigem, String numeroDestino, BigDecimal valor)
@@ -44,6 +46,9 @@ public class TransacaoService {
 
         origem.enviarTransferencia(destino, valor, geradorId.proximo());
         destino.receberTransferencia(origem, valor, geradorId.proximo());
+
+        contaService.salvar(origem);
+        contaService.salvar(destino);
     }
 
     public BigDecimal consultarSaldo(String numeroConta) throws ContaNaoEncontradaException {

@@ -7,6 +7,8 @@ import br.com.sistemabancario.exception.SaldoInsuficienteException;
 import br.com.sistemabancario.exception.ValorInvalidoException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -69,5 +71,18 @@ class ContaTest {
         assertEquals(2, poupanca.getExtrato().size());
         assertEquals(TipoTransacao.TRANSFERENCIA_RECEBIDA,
                 corrente.getExtrato().get(0).getTipo());
+    }
+
+    @Test
+    void restauraSaldoEExtratoAPartirDoHistorico() throws Exception {
+        poupanca.depositar(new BigDecimal("200.00"), "t1");
+        poupanca.sacar(new BigDecimal("50.00"), "t2");
+        List<Transacao> historico = new ArrayList<>(poupanca.getExtrato());
+
+        ContaPoupanca restaurada = new ContaPoupanca("000001", "0001", poupanca.getTitular());
+        restaurada.restaurarHistorico(historico);
+
+        assertEquals(new BigDecimal("150.00"), restaurada.getSaldo());
+        assertEquals(2, restaurada.getExtrato().size());
     }
 }

@@ -100,6 +100,18 @@ public abstract class Conta {
         return saldo;
     }
 
+    public void restaurarHistorico(List<Transacao> transacoes) {
+        historico.clear();
+        saldo = BigDecimal.ZERO.setScale(CASAS_DECIMAIS);
+        for (Transacao transacao : transacoes) {
+            saldo = switch (transacao.getTipo()) {
+                case DEPOSITO, TRANSFERENCIA_RECEBIDA -> saldo.add(transacao.getValor());
+                case SAQUE, TRANSFERENCIA_ENVIADA -> saldo.subtract(transacao.getValor());
+            };
+            historico.add(transacao);
+        }
+    }
+    
     public List<Transacao> getExtrato() {
         return Collections.unmodifiableList(historico);
     }
